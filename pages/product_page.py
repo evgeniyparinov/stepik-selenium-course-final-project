@@ -34,10 +34,11 @@ class ProductPage(BasePage):
         assert price_in_alert_total_basket == product_price, \
             "The price of a product does not correspond to the price in the basket"
 
+    def should_be_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.ALERT_ADDED_PRODUCT), \
+            "An element is not disappeared, but should be"
+
     def should_be_not_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.ALERT_ADDED_PRODUCT), \
             "Success message is presented, but should not be"
 
-    def should_be_disappeared(self):
-        assert self.is_disappeared(*ProductPageLocators.ALERT_ADDED_PRODUCT), \
-            "An element is not disappeared, but should be"
