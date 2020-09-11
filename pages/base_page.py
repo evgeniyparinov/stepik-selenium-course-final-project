@@ -29,7 +29,7 @@ class BasePage:
 
         return True
 
-    def is_element_present(self, how, what, timeout=2):
+    def is_element_present(self, how, what, timeout=4):
         try:
             # explicit wait for running tests on firefox
             WebDriverWait(self.browser, timeout).until(

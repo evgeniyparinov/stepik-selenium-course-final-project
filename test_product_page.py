@@ -28,7 +28,6 @@ def test_guest_can_add_product_to_basket(browser, link):
 
 
 @pytest.mark.need_review
-@pytest.mark.xfail
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
@@ -77,6 +76,7 @@ def test_guest_cant_see_success_message(browser):
     page.should_be_not_success_message()
 
 
+@pytest.mark.xfail
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     page = ProductPage(browser, link)
