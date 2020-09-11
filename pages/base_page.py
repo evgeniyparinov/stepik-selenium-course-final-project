@@ -4,7 +4,6 @@ from selenium.webdriver import Remote as RemoteWebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from .locators import BasePageLocators
-from .locators import MainPageLocators
 import math
 
 
@@ -12,7 +11,6 @@ class BasePage:
     def __init__(self, browser: RemoteWebDriver, url):
         self.browser = browser
         self.url = url
-        #self.browser.implicitly_wait(timeout)
 
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
@@ -52,6 +50,10 @@ class BasePage:
     def open(self):
         self.browser.get(self.url)
 
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), \
+            "User icon is not presented, probably unauthorized user"
+
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK),\
             "Login link is not found"
@@ -69,5 +71,3 @@ class BasePage:
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
-
-
