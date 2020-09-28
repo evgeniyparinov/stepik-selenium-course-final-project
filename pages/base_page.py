@@ -1,10 +1,12 @@
+import math
+
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import Remote as RemoteWebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+
 from .locators import BasePageLocators
-import math
 
 
 class BasePage:

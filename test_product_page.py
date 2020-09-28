@@ -1,9 +1,9 @@
+import pytest
+from mimesis import Person
+
 from pages.basket_page import BasketPage
 from pages.login_page import LoginPage
 from pages.product_page import ProductPage
-from mimesis import Person
-import pytest
-
 
 number_bugged_link = 7
 pattern = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer"
